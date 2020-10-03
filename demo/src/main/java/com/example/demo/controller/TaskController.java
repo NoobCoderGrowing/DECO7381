@@ -24,6 +24,10 @@ public class TaskController {
     private TaskRepository taskRepository;
     private UserController userController;
 
+    public TaskController(UserController userController) {
+        this.userController = userController;
+    }
+
     @RequestMapping("/getAllTask")
     @ResponseBody
     public List<Task> findAll() {
@@ -88,7 +92,7 @@ public class TaskController {
     @ResponseBody
     public JSONObject getOneTaskDetail(HttpServletRequest request){
         JSONObject jsonParam = getByRequest(request);
-        JSONObject taskJson = new JSONObject();
+
         JSONObject tempJson = new JSONObject();
         JSONObject newJson = new JSONObject();
 
@@ -97,6 +101,7 @@ public class TaskController {
         Long userId = userController.getUserId(username, password);
 
         if (getTaskNumber(userId) == 1) {
+            JSONObject taskJson = new JSONObject();
             taskJson.put("taskname", getTaskList(userId).get(0).getTaskName());
             taskJson.put("task_detail", getTaskList(userId).get(0).getTaskDetail());
             taskJson.put("difficulty", getTaskList(userId).get(0).getDifficulty());
@@ -105,37 +110,42 @@ public class TaskController {
         }
 
         if (getTaskNumber(userId) == 2) {
+            JSONObject taskJson = new JSONObject();
             taskJson.put("taskname", getTaskList(userId).get(0).getTaskName());
             taskJson.put("task_detail", getTaskList(userId).get(0).getTaskDetail());
             taskJson.put("difficulty", getTaskList(userId).get(0).getDifficulty());
             taskJson.put("tools", getTaskList(userId).get(0).getTool());
             tempJson.put("task1", taskJson);
 
-            taskJson.put("taskname", getTaskList(userId).get(1).getTaskName());
-            taskJson.put("task_detail", getTaskList(userId).get(1).getTaskDetail());
-            taskJson.put("difficulty", getTaskList(userId).get(1).getDifficulty());
-            taskJson.put("tools", getTaskList(userId).get(1).getTool());
-            tempJson.put("task2", taskJson);
+            JSONObject taskJson2 = new JSONObject();
+            taskJson2.put("taskname", getTaskList(userId).get(1).getTaskName());
+            taskJson2.put("task_detail", getTaskList(userId).get(1).getTaskDetail());
+            taskJson2.put("difficulty", getTaskList(userId).get(1).getDifficulty());
+            taskJson2.put("tools", getTaskList(userId).get(1).getTool());
+            tempJson.put("task2", taskJson2);
         }
 
         if (getTaskNumber(userId) == 3) {
+            JSONObject taskJson = new JSONObject();
             taskJson.put("taskname", getTaskList(userId).get(0).getTaskName());
             taskJson.put("task_detail", getTaskList(userId).get(0).getTaskDetail());
             taskJson.put("difficulty", getTaskList(userId).get(0).getDifficulty());
             taskJson.put("tools", getTaskList(userId).get(0).getTool());
             tempJson.put("task1", taskJson);
 
-            taskJson.put("taskname", getTaskList(userId).get(1).getTaskName());
-            taskJson.put("task_detail", getTaskList(userId).get(1).getTaskDetail());
-            taskJson.put("difficulty", getTaskList(userId).get(1).getDifficulty());
-            taskJson.put("tools", getTaskList(userId).get(1).getTool());
-            tempJson.put("task2", taskJson);
+            JSONObject taskJson2 = new JSONObject();
+            taskJson2.put("taskname", getTaskList(userId).get(1).getTaskName());
+            taskJson2.put("task_detail", getTaskList(userId).get(1).getTaskDetail());
+            taskJson2.put("difficulty", getTaskList(userId).get(1).getDifficulty());
+            taskJson2.put("tools", getTaskList(userId).get(1).getTool());
+            tempJson.put("task2", taskJson2);
 
-            taskJson.put("taskname", getTaskList(userId).get(2).getTaskName());
-            taskJson.put("task_detail", getTaskList(userId).get(2).getTaskDetail());
-            taskJson.put("difficulty", getTaskList(userId).get(2).getDifficulty());
-            taskJson.put("tools", getTaskList(userId).get(2).getTool());
-            tempJson.put("task3", taskJson);
+            JSONObject taskJson3 = new JSONObject();
+            taskJson3.put("taskname", getTaskList(userId).get(2).getTaskName());
+            taskJson3.put("task_detail", getTaskList(userId).get(2).getTaskDetail());
+            taskJson3.put("difficulty", getTaskList(userId).get(2).getDifficulty());
+            taskJson3.put("tools", getTaskList(userId).get(2).getTool());
+            tempJson.put("task3", taskJson3);
         }
 
         newJson.put("number", getTaskNumber(userId));
