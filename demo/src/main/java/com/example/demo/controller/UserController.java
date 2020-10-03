@@ -38,14 +38,14 @@ public class UserController {
         return list;
     }
 
-    @RequestMapping("/getByUserNameAndPassword")
+    @RequestMapping("/getDate")
     @ResponseBody
     public Date getUserDate(String userName, String password) {
         User user = userRepository.findByUserNameAndPassword(userName, password);
         return user.getDate();
     }
 
-    @RequestMapping("/getByUserNameAndPassword")
+    @RequestMapping("/getId")
     @ResponseBody
     public Long getUserId(String userName, String password) {
         User user = userRepository.findByUserNameAndPassword(userName, password);
