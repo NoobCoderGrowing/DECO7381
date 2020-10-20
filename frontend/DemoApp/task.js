@@ -5,7 +5,6 @@ import React,{ Component,useState,useEffect } from 'react';
 import { FlatList,Platform,Alert,TouchableOpacity,TextInput,Dimensions,Image,ImageBackground, Text, StyleSheet, View, ImageStore } from 'react-native';
 import {ScrollView } from 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import createTask from './task';
 
 const windowWidth=Dimensions.get('window').width;
 const windowHeight=Dimensions.get('window').height;
@@ -54,7 +53,7 @@ render(){
 
       </View>
     {/* </ScrollView> */}
-      <Image source={require('./assets/images/Group400.png')} style={{position:'absolute',bottom:0,alignSelf:'flex-end'}}/>
+      <Image source={require('./assets/images/Group400.png')} style={{position:'absolute',bottom:45,alignSelf:'flex-end'}}/>
     </View>
 
   )
@@ -140,7 +139,7 @@ class List extends Component{
             <View style={{marginLeft:5,height:65,width:64,backgroundColor:"gray",borderRadius:10}}><Image source={require('./assets/images/Star11.png')}/></View>
             <View style={{marginLeft:5,height:65,width:64,backgroundColor:"gray",borderRadius:10}}><Image source={require('./assets/images/Star11.png')}/></View>
             <View style={{marginLeft:5,height:65,width:64,backgroundColor:"gray",borderRadius:10}}><Image source={require('./assets/images/Star11.png')}/></View>
-            <View style={{marginLeft:5,height:65,width:64,backgroundColor:"gray",borderRadius:10}}><Image source={require('./assets/images/Star11.png')}/></View>
+            <View style={{marginLeft:5,height:65,width:64,backgroundColor:"gray",borderRadius:10}}><Image style= {{width:50,height:50}}source={{uri: `https://reactnative.dev/img/tiny_${a}.png`}}/></View>
           </View>    
         </View>
       
@@ -202,8 +201,7 @@ class Stars extends Component{
     }
 }
 
-
-
+const a="logo";
 
 
 

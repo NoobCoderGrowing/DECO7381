@@ -74,7 +74,7 @@ const Login = ({ navigation }) => {
     password: password,
   };
 
-  const submit=()=>{
+  const submit1=()=>{
     fetch(
       'http://localhost:8080/user/getUserDetail',{
         method:'POST',
@@ -90,12 +90,25 @@ const Login = ({ navigation }) => {
       console.error(error);
     });
   };
+
+  const submit=()=>{
+    fetch(
+      'http://localhost:8080/user/',{
+        method:'POST',
+      }
+    ).then((response)=>{
+      console.log(response)
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    };
   
   
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./assets/images/indexMainBackground.png')} style={styles.containerSecondContainer}>
-        <ImageBackground source={require('./assets/images/upperBackground.png')} style={styles.containerSecondContainerThirdContainer}>
+      <ImageBackground source={require('./assets/images/login.png')} style={styles.containerSecondContainer}>
+        <ImageBackground source={require('./assets/images/login.png')} style={styles.containerSecondContainerThirdContainer}>
           <View style={{position:"absolute",left:0.2*windowWidth,top:0.15*windowHeight}}>
             <Text style={{textAlign:"left",color:'rgb(19,95,49)',fontSize:windowHeight*0.03}}>Welcome to</Text>
             <Text style={{textAlign:"left",color:'rgb(19,95,49)',fontSize:windowHeight*0.05,fontWeight:'bold'}}>EcoAssist</Text>
