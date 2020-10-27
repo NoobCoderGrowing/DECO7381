@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView,Platform,Alert,TouchableOpacity,TextInput,Dimensions,Image,ImageBackground, Text, StyleSheet, View, ImageStore } from 'react-native';
+import ImagePicker from 'react-native-image-crop-picker';
 
 const windowWidth=Dimensions.get('window').width;
 const windowHeight=Dimensions.get('window').height;
@@ -109,8 +110,45 @@ fetch('http://localhost:8080/controller/upload', {
   });
   };
 
+const uploadPic=()=>{
+  ImagePicker.openPicker({
+    width: 300,
+    height: 400,
+    cropping: true
+  }).then(image => {
+    image.path
+  });
+}
 
+const uploadPic2=()=>{
+  ImagePicker.openPicker({
+    width: 300,
+    height: 400,
+    cropping: true
+  }).then(image => {
+    image.path
+  });
+}
 
+const uploadPic3=()=>{
+  ImagePicker.openPicker({
+    width: 300,
+    height: 400,
+    cropping: true
+  }).then(image => {
+    image.path
+  });
+}
+
+const uploadPic4=()=>{
+  ImagePicker.openPicker({
+    width: 300,
+    height: 400,
+    cropping: true
+  }).then(image => {
+    image.path
+  });
+}
 
 
 const getPhoto=()=>{
@@ -211,9 +249,29 @@ const getPhoto=()=>{
          defaultValue="please provide some educational contents for the task"
       />
 
-      <View>
+      {/* <View>
         <Image source={{url:'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:windowHeight*190/947, width:windowWidth*150/375, marginBottom:windowHeight*30/947}}/>
-      </View>
+      </View> */}
+
+      <ScrollView horizontal={true}>
+          <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity onPress={uploadPic}>
+              <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={uploadPic}>
+              <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={uploadPic}>
+              <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={uploadPic}>
+              <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            </TouchableOpacity>
+          </View>
+      </ScrollView>
 
       
       <View style={{width:windowWidth, alignItems: 'center'}}>

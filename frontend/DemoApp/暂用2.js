@@ -10,13 +10,9 @@ import AfterLogin from './afterLogin';
 import Login from './login';
 
 import teacherTaskDetail from './teacherTaskDetail';
-import TaskDetail2 from "./Apphaizhao2";
 import taskDeatail2 from './Apphaizhao2';
 import Leaderboard from './leaderboard';
 import echoTree from './echoTree';
-import MyProfile from './myProfile';
-import Register from './register';
-import Start from './start';
 
 
 
@@ -39,9 +35,6 @@ function App1(){
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Base" component={Start} />
-        <Tab.Screen name="Register" component={Register} />
-        <Tab.Screen name="MyProfile" component={MyProfile} />
         <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="HelloUser" component={AfterLogin} />
         <Tab.Screen name="TaskList" component={TaskList} />

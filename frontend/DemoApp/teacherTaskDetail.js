@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, ScrollView,Platform,Alert,TouchableOpacity,TextInput,Dimensions,Image,ImageBackground, Text, StyleSheet, View, ImageStore } from 'react-native';
 
+
 const windowWidth=Dimensions.get('window').width;
 const windowHeight=Dimensions.get('window').height;
 
@@ -100,6 +101,8 @@ const teacherTaskDetail = () => {
       <ScrollView horizontal={true}>
           <View style={{flexDirection: 'row'}}>
             <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+          
+            
             <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
             <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
             <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
