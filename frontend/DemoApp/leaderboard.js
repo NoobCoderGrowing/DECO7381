@@ -143,7 +143,7 @@ class Leaderboard extends Component{
             </View>
 
             <View style={{marginTop:5,width:350,height:60,backgroundColor:'rgb(244,250,237)',borderRadius:20,flexDirection:'row',alignItems:'center'}}>
-                <Text style={{marginLeft:20,fontWeight:'bold',fontSize:16}}>1</Text>
+                <Text style={{marginLeft:20,fontWeight:'bold',fontSize:16}}></Text>
                 <Image source = {require('./assets/images/UserProfile.png')} style={{marginLeft:20,backgroundColor:'red',width:36,height:36,borderRadius:18}}></Image>
                 <Text style={{marginLeft:20,width:136,textAlign:"left",lineHeight:20,fontSize:16,fontWeight:'bold'}}>Maria Garcia</Text>
                 <Image style={{marginLeft:20,width:25,height:25}} source={require('./assets/images/Staryellow.png')}></Image>

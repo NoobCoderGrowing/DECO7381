@@ -89,7 +89,7 @@ const Login = ({ navigation }) => {
       if(data.usertype=="teacher"){
         teacherGetTaskList(userJason);      
       }else if(data.usertype=="student"){
-        studentGetTaskList(userJason);
+        teacherGetTaskList(userJason);
       }
     })
     .catch((error) => {
