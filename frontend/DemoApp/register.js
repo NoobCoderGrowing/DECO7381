@@ -147,7 +147,7 @@ const Register = ({route, navigation}) =>{
             <TextInput 
             style={{height: 19,width:152,position:'absolute',top:30,borderBottomColor:'black',borderBottomWidth:1}}
             placeholder= "student or teacher"
-            onChangeText={accountNumber => setAccountNumber(accountNumber)}>
+            onChangeText={userType => setUserType(userType)}>
             </TextInput>
           </View>
 

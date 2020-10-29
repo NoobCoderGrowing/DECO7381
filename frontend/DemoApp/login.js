@@ -74,36 +74,81 @@ const Login = ({ navigation }) => {
     password: password,
   };
 
-  const submit1=()=>{
+  const submit=()=>{
+    const userJason=JSON.stringify(user);
     fetch(
       'http://localhost:8080/user/getUserDetail',{
         method:'POST',
         headers:{
           'Conten-type':'application/json;charset=UTF-8'
         },
-        body: JSON.stringify(user)
+        body: userJason
       }
     ).then((response)=>response.json()).then(data=>{
-      navigation.navigate('HelloUser', {data,user});
+      
+      if(data.usertype=="teacher"){
+        teacherGetTaskList(userJason);      
+      }else if(data.usertype=="student"){
+        studentGetTaskList(userJason);
+      }
     })
     .catch((error) => {
       console.error(error);
     });
   };
 
-  const submit=()=>{
-    fetch(
-      'http://localhost:8080/user/',{
-        method:'POST',
-      }
-    ).then((response)=>{
-      console.log(response)
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-    };
+  // const teacherGetTaskList=(userJason)=>{
+  //   fetch(
+  //     'http://localhost:8080/task/getOneTaskDetail',{
+  //       method:'POST',
+  //       headers:{
+  //         'Conten-type':'application/json;charset=UTF-8'
+  //       },
+  //       body: userJason
+  //     }
+  //   ).then((response)=>response.json().then(data=>{
+  //     navigation.navigate("HelloUser",{data});
+  //   }))
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+  //   };
+
+    const teacherGetTaskList=(userJason)=>{
+      fetch(
+        'http://localhost:8080/user/getUserDetail',{
+          method:'POST',
+          headers:{
+            'Conten-type':'application/json;charset=UTF-8'
+          },
+          body: userJason
+        }
+      ).then((response)=>response.json().then(data=>{
+        navigation.navigate("HelloUser",{data});
+      }))
+      .catch((error) => {
+        console.error(error);
+      });
+      };
   
+
+    const studentGetTaskList=(userJason)=>{
+      fetch(
+        'http://localhost:8080/task/getOneTaskDetail',{
+          method:'POST',
+          headers:{
+            'Conten-type':'application/json;charset=UTF-8'
+          },
+          body: userJason
+        }
+      ).then((response)=>response.json().then(data=>{
+        console.log(data);
+        navigation.navigate("student");
+      }))
+      .catch((error) => {
+        console.error(error);
+      });
+      };
   
   return (
     <View style={styles.container}>

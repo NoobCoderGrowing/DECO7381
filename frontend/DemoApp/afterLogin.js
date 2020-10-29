@@ -67,7 +67,15 @@ const styles = StyleSheet.create({
 
 const AfterLogin = ({ route, navigation}) => {
     var user=route.params.user
-   
+    console.log(route);
+    var username=route.params.data.username;
+    var password=route.params.data.password;
+    var user1={
+      username:username,
+      password:password,
+    };
+    var userJson=JSON.stringify(user1);
+
    function getDay(route){
      var createdDate=route.params.data.createdDate;
      var date=new Date(createdDate);
@@ -83,7 +91,7 @@ const AfterLogin = ({ route, navigation}) => {
          headers:{
            'Conten-type':'application/json;charset=UTF-8'
          },
-         body: JSON.stringify(user)
+         body: userJson,
        }
      ).then((response)=>response.json()).then(data=>{
        navigation.navigate('TaskList',{data});

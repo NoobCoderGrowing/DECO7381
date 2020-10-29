@@ -88,7 +88,7 @@ const styles = StyleSheet.create ({
           style = {{position:"absolute",top:122,left:208}}>
   
           </Image>
-          <Text style = {{position:"absolute",top:170,left:132,fontSize:22,color:"rgb(11,61,31)"}}>Zella Hope</Text>
+          <Text style = {{position:"absolute",top:170,left:150,fontSize:22,color:"rgb(11,61,31)"}}>wenjun</Text>
         </ImageBackground>
         <View style = {{flexDirection:"row"}}>
           <ImageBackground
@@ -103,24 +103,24 @@ const styles = StyleSheet.create ({
           style = {{width:100,height:80,position:"absolute",right:-167,top:250}}></ImageBackground>
         </View>
         <View style = {{position:"absolute",top:269,left:60}} >
-          <Text style = {{fontSize:24,color:"rgb(8,54,3)"}}>6</Text>
+          <Text style = {{fontSize:24,color:"rgb(8,54,3)"}}>2</Text>
           <Text style = {{fontSize:12,color:"rgba(0,0,0,0.65)"}}>Tasks</Text>
         </View>
         <View style = {{position:"absolute",top:269,left:175}} >
-          <Text style = {{fontSize:24,color:"rgb(8,54,3)"}}>20</Text>
+          <Text style = {{fontSize:24,color:"rgb(8,54,3)"}}>0</Text>
           <Text style = {{fontSize:12,color:"rgba(0,0,0,0.65)"}}>Stars</Text>
         </View>
         <View style = {{position:"absolute",top:269,left:295}} >
-          <Text style = {{fontSize:24,color:"rgb(8,54,3)"}}>35</Text>
+          <Text style = {{fontSize:24,color:"rgb(8,54,3)"}}>29</Text>
           <Text style = {{fontSize:12,color:"rgba(0,0,0,0.65)"}}>Days</Text>
         </View>
         <View style = {{flexDirection:"row"}}>
           <Text style = {{position:"absolute",left:-140,top:384,fontSize:16,color:"rgb(11,61,31)"}}>Name</Text>
-          <Text style = {{position:"absolute",left:60,top:384,fontSize:16,color:"rgb(11,61,31)",textAlign:"right"}}>Zella Hope</Text>
+          <Text style = {{position:"absolute",left:60,top:384,fontSize:16,color:"rgb(11,61,31)",textAlign:"right"}}>wenjun</Text>
         </View>
         <View style = {{flexDirection:"row"}}>
           <Text style = {{position:"absolute",left:-140,top:454,fontSize:16,color:"rgb(11,61,31)"}}>AccountNumber</Text>
-          <Text style = {{position:"absolute",left:60,top:454,fontSize:16,color:"rgb(11,61,31)",textAlign:"right"}}>123456</Text>
+          <Text style = {{position:"absolute",left:90,top:454,fontSize:16,color:"rgb(11,61,31)",textAlign:"right"}}>1</Text>
         </View>
         {/* <View style = {{flexDirection:"row"}}>
           <Text style = {{position:"absolute",left:-140,top:434,fontSize:16,color:"rgb(11,61,31)"}}>Reset Password</Text>

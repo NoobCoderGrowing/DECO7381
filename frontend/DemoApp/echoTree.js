@@ -65,14 +65,14 @@ class echoTree extends Component{
         }
 
         Animated.timing(this.state.topvalue,{
-            toValue:200,
-            duration:500,
+            toValue:1000,
+            duration:3000,
             useNativeDriver:false
         }).start();
 
         Animated.timing(this.state.leftvalue,{
-            toValue:300,
-            duration:500,
+            toValue:500,
+            duration:3000,
             useNativeDriver:false
         }).start();
 
@@ -149,11 +149,15 @@ class echoTree extends Component{
                     top:'10%',
                     left:this.state.leftvalue}
                 ]}>
-                <TouchableOpacity  onPress={()=>this.moveBall()}>
+                {/* <TouchableOpacity  onPress={()=>this.moveBall()}> */}
                     <Image source={require('./assets/images/tree/kettle.png')}></Image>
-                </TouchableOpacity>
+                {/* </TouchableOpacity> */}
             </Animated.View>
-
+            <TouchableOpacity  onPress={()=>this.moveBall()}>  
+            <View style={{height:50,width:50,left:300,top:-350}}>
+                
+            </View>
+            </TouchableOpacity>  
             <Animated.View style={[
                  {zIndex:2,
                     position:'absolute',

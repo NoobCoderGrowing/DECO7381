@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { ScrollView,Platform,Alert,TouchableOpacity,TextInput,Dimensions,Image,ImageBackground, Text, StyleSheet, View, ImageStore } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
+
 
 const windowWidth=Dimensions.get('window').width;
 const windowHeight=Dimensions.get('window').height;
@@ -49,66 +50,27 @@ const submit=()=>{
 
 const taskDeatail2 = () => {
    //const link=require('./assets/images/db_hover.png');
+   const [taskScore, setTaskScore] = useState(0);
+   const [year, setYear] = useState(2020-1900);
+   const [month, setMonth] = useState(11);
+   const [day, setDay] = useState(31);
+   const [taskDetail, setTaskDetail] = useState('');
+   const [difficulty, setDifficulty] = useState(5);
+   const [taskName, setTaskName] = useState('');
+   const [tool, setTool] = useState('');
+   const [image1, setimage1] = useState('');
+   const [image2, setimage2] = useState('');
+   const [image3, setimage3] = useState('');
+   const [image4, setimage4] = useState('');
+   const [education, setEducation] = useState('');
+
+   const [img1, setImg1] = useState('https://github.com/NoobCoderGrowing/DECO7381/blob/master/4811603866811_.pic_hd.jpg?raw=true');
+
+   
+
+   const [img2, setImg2] = useState('https://github.com/NoobCoderGrowing/DECO7381/blob/master/4801603866781_.pic_hd.jpg?raw=true');
 
 
-
-// const submit2=()=>{
-//   const xhr=new XMLHttpRequest();
-//   const formData=new FormData();
-  
-//   formData.append('image',{
-//     uri:link,
-//     type:"image/png",
-//     name:"photo.png",
-//   });
-//   // xhr.upload.addEventListener('progress',handleProgress);
-//   // xhr.addEventListener('load',()=>{
-//   //   setUploadProgress(100);
-//   //   setResponse(xhr.response);
-//   // });
-//   xhr.open('POST','http://localhost:8080/controller/upload');
-//   // xhr.setRequestHeader('Authorization',UPLOAD_PROGRESS_HEADER);
-//   xhr.send(formData);
-// };
-
-// const submit2=()=>{
-// var data = new FormData()
-// data.append('file', 'https://reactnative.dev/docs/assets/p_cat2.png')
-// // data.append('user', 'hubot')
-
-// fetch('http://localhost:8080/controller/upload', {
-//   method: 'POST',
-//   headers:{
-//     'Conten-type':"image/png"
-//   },
-//   body: data
-// }).then((response)=>{
-//   console.log(response)
-// })
-// .catch((error) => {
-//   console.error(error);
-// });
-// };
-
-const submit2=()=>{
-const form = new FormData();
-
-form.append('image', {
-  uri: "https://reactnative.dev/docs/assets/p_cat2.png",
-  type: 'image/png',
-  name: 'image.png',
-});
-
-fetch('http://localhost:8080/controller/upload', {
-  method: 'POST',
-  body: form
-}).then((response)=>{
-    console.log(response)
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-  };
 
 const uploadPic=()=>{
   ImagePicker.openPicker({
@@ -116,7 +78,7 @@ const uploadPic=()=>{
     height: 400,
     cropping: true
   }).then(image => {
-    image.path
+    setImg1(image.path);
   });
 }
 
@@ -126,7 +88,7 @@ const uploadPic2=()=>{
     height: 400,
     cropping: true
   }).then(image => {
-    image.path
+    setImg2(image.path)
   });
 }
 
@@ -151,38 +113,82 @@ const uploadPic4=()=>{
 }
 
 
-const getPhoto=()=>{
 
-  
-  fetch('http://localhost:8080/controller/download', {
+
+
+const createTask=()=>{
+
+  const task={
+    taskScore:taskScore,
+    year:year,
+    month:month,
+    day:day,
+    taskDetail:taskDetail,
+    difficulty:difficulty,
+    taskName:taskName,
+    tool:tool,
+    image1:image1,
+    image2:image2,
+    image3:image3,
+    image4:image4,
+    education:education,
+  }
+  const taskJson=JSON.stringify(task);
+
+    fetch('http://localhost:8080/task/save', {
     method: 'POST',
+    headers:{
+      'Conten-type':'application/json;charset=UTF-8'
+    },
+    body: taskJson
   }).then((response)=>{
-    console.log(response)
+    if(!response.ok){
+      console.log('fail');
+    }
   })
   .catch((error) => {
     console.error(error);
   });
-  };
+}
+
+
+// const getPhoto=()=>{
+
+  
+//   fetch('http://localhost:8080/controller/download', {
+//     method: 'POST',
+//   }).then((response)=>{
+//     console.log(response)
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+//   };
+
+ 
+
+  
 
   
   return (
     <ScrollView>
-      <Text style={{fontWeight:"bold",fontSize:24,color:'rgb(8,54,3)',textAlign:'center', marginTop:windowHeight*28/947, marginBottom:windowHeight*18/947}}>Less Plastic Bottle!</Text>
+      <Text style={{fontWeight:"bold",fontSize:24,color:'rgb(8,54,3)',textAlign:'center', marginTop:windowHeight*28/947, marginBottom:windowHeight*18/947}}></Text>
       <TextInput
               style={{ height: 64, width:windowWidth/22*20, backgroundColor: 'rgb(251,253,247)', borderWidth: 1, marginLeft: windowWidth/22,
               marginRight: windowWidth/22 }}
-              defaultValue="please input short description of the task"
+              placeholder="please input the name of the task"
+              onChangeText={taskName => setTaskName(taskName)}
       />
       <Text style={{textAlign:'center', marginLeft:windowWidth*27/375, marginRight:windowWidth*27/375, marginTop:windowHeight*28/947, color:'rgba(141,192,56,0.2)'}}>——————————————————————————————————</Text>
 
       <View style={{marginLeft:windowWidth*27/375, marginRight:windowWidth*18/375, marginBottom:windowWidth*30/947,
       flex:1, flexDirection: 'row', alignItems: 'center'}}>
         <Text style={{fontWeight:"bold", fontSize:16, color:'rgb(135,178,106)', width:windowWidth*80/375}}>Difficulty</Text>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:36, height:36, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:36, height:36, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:36, height:36, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:36, height:36, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:36, height:36, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:20, height:20, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:20, height:20, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:20, height:20, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:20, height:20, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:20, height:20, marginLeft:8}}/>
       </View>
 
       <View style={{marginLeft:windowWidth*27/375, marginRight:windowWidth*18/375, marginBottom:windowWidth*30/947,
@@ -190,7 +196,8 @@ const getPhoto=()=>{
             <Text style={{fontWeight:"bold", fontSize:16, color:'rgb(135,178,106)', width:windowWidth*80/375}}>Tools</Text>
             <TextInput
                  style={{ height: windowHeight/947*38, backgroundColor: 'rgb(251,253,247)', borderWidth: 1, flex:1}}
-                 defaultValue="tools that required"
+                 placeholder="tools that required"
+                 onChangeText={tool => setTool(tool)}
             />
       </View>
 
@@ -202,23 +209,23 @@ const getPhoto=()=>{
       {/* Category */}
       <View style={styles.container}>
         <View>
-          <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={ styles.thumbnail }/>
-          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.026,marginRight: windowWidth*0.032}}>recycle</Text>
+          <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/cat1.png?raw=true'}} style={ styles.thumbnail }/>
+          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.026,marginRight: windowWidth*0.032}}>water</Text>
         </View>
 
         <View>
-          <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={ styles.thumbnail }/>
-          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.04,marginRight: windowWidth*0.03}}>water</Text>
+          <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/cat2.png?raw=true'}} style={ styles.thumbnail }/>
+          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.04,marginRight: windowWidth*0.03}}>reading</Text>
         </View>
 
         <View>
-          <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={ styles.thumbnail }/>
-          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.045,marginRight: windowWidth*0.025}}>energy</Text>
+          <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/cat3.png?raw=true'}} style={ styles.thumbnail }/>
+          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.045,marginRight: windowWidth*0.025}}>carbon</Text>
         </View>
 
         <View>
-          <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={ styles.thumbnail }/>
-          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.03,marginRight: windowWidth*0.03}}>reading</Text>
+          <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/cat4.png?raw=true'}} style={ styles.thumbnail }/>
+          <Text style={{fontWeight:"bold",fontSize:16, color:'rgba(0,0,0,0.65)',marginLeft: windowWidth*0.03,marginRight: windowWidth*0.03}}>energy</Text>
         </View>
     
       </View>
@@ -235,7 +242,8 @@ const getPhoto=()=>{
       <TextInput
            style={{ height: 64, width:windowWidth/22*20, backgroundColor: 'rgb(251,253,247)', borderWidth: 1, marginLeft: windowWidth/22,
            marginRight: windowWidth/22, marginBottom:windowHeight*20/947 }}
-           defaultValue="please provide some guide for the task"
+           placeholder="please provide some guide for the task"
+           onChangeText={taskDetail => setTaskDetail(taskDetail)}
       />
 
       <View style={{marginLeft:windowWidth*27/375, marginRight:windowWidth*18/375,
@@ -246,7 +254,8 @@ const getPhoto=()=>{
       <TextInput
          style={{ height: 64, width:windowWidth/22*20, backgroundColor: 'rgb(251,253,247)', borderWidth: 1, marginLeft: windowWidth/22,
          marginRight: windowWidth/22, marginBottom:windowHeight*30/947 }}
-         defaultValue="please provide some educational contents for the task"
+         placeholder="please provide some educational contents for the task"
+         onChangeText={education => setEducation(education)}
       />
 
       {/* <View>
@@ -256,26 +265,26 @@ const getPhoto=()=>{
       <ScrollView horizontal={true}>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity onPress={uploadPic}>
+              <Image source={{uri: img1}} style={{height:190,width:147, marginBottom:60,marginLeft:30}}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={uploadPic2}>
+              <Image source={{uri: img2}} style={{height:190,width:147, marginBottom:60,marginLeft:30}}/>
+            </TouchableOpacity>
+
+            {/* <TouchableOpacity onPress={uploadPic}>
               <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={uploadPic}>
               <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={uploadPic}>
-              <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={uploadPic}>
-              <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
       </ScrollView>
 
       
       <View style={{width:windowWidth, alignItems: 'center'}}>
-        <TouchableOpacity style={styles.signIn} onPress={submit2}>
+        <TouchableOpacity style={styles.signIn} onPress={createTask}>
               <Text style={{bottom:5,textAlign:"center",color:'rgb(135,178,106)',fontWeight:"bold"}}>Confirm</Text>
         </TouchableOpacity>
       </View>

@@ -40,45 +40,7 @@ function App() {
   );
 }
 
-function finalApp(){
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Base" component={Start} />
-        <Tab.Screen name="Register" component={Register} />
-        <Tab.Screen name="MyProfile" component={MyProfile} />
-        <Tab.Screen name="Login" component={Login} />
-        <Tab.Screen name="HelloUser" component={AfterLogin} />
-        <Tab.Screen name="TaskList" component={TaskList} />
-        <Tab.Screen name="TaskDetail" component={teacherTaskDetail} />
-        <Tab.Screen name="TaskDetail2" component={taskDeatail2} />
-        <Tab.Screen name="Leaderboard" component={Leaderboard} />
-        <Tab.Screen name="urTree" component={echoTree} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
-
-
-function teacherApp(){
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Base" component={Start} />
-        <Tab.Screen name="Register" component={Register} />
-        <Tab.Screen name="MyProfile" component={MyProfile} />
-        <Tab.Screen name="Login" component={Login} />
-        <Tab.Screen name="HelloUser" component={AfterLogin} />
-        <Tab.Screen name="TaskList" component={TaskList} />
-        <Tab.Screen name="TaskDetail" component={teacherTaskDetail} />
-        <Tab.Screen name="TaskDetail2" component={taskDeatail2} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
-
-
-function studentApp(){
+function App1(){
   return (
     <NavigationContainer>
       <Tab.Navigator>
@@ -97,4 +59,4 @@ function studentApp(){
 }
 
 
-export default finalApp;
+export default App1;

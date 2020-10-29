@@ -34,15 +34,19 @@ const styles = StyleSheet.create({
   }
 });
 
-const teacherTaskDetail = () => {
+const teacherTaskDetail = ({ navigation })=> {
+
+  const navigate=()=>{
+    navigation.navigate("TaskDetail2");
+  };
   return (
     <View style={{position:"relative"}}>
     <ScrollView>
       <View style={{position:'relative'}}>
         <Text style={{fontWeight:"bold",fontSize:24,color:'rgb(8,54,3)',textAlign:'center', marginTop:50, marginBottom:windowHeight*18/947}}>Less Plastic Bottle!</Text>
-        <TouchableOpacity style={styles.signIn}>
+        {/* <TouchableOpacity style={styles.signIn} onPress={navigate}>
               <Text style={{bottom:5,textAlign:"center",color:'white',fontWeight:"bold"}}>Edit</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       
@@ -53,11 +57,11 @@ const teacherTaskDetail = () => {
       <View style={{marginLeft:windowWidth*27/375, marginRight:windowWidth*18/375, marginBottom:windowWidth*30/947,
       flex:1, flexDirection: 'row', alignItems: 'center'}}>
         <Text style={{fontWeight:"bold", fontSize:14, color:'rgb(135,178,106)', width:windowWidth*67/375}}>Difficulty</Text>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:25, height:25, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:25, height:25, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:25, height:25, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:25, height:25, marginLeft:8}}/>
-        <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:25, height:25, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:25, height:25, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:25, height:25, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:25, height:25, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}} style={{ width:25, height:25, marginLeft:8}}/>
+        <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/Staryellow.png?raw=true'}}style={{ width:25, height:25, marginLeft:8}}/>
       </View>
 
       <View style={{marginLeft:windowWidth*27/375, marginRight:windowWidth*18/375, marginBottom:windowWidth*30/947,
@@ -69,7 +73,7 @@ const teacherTaskDetail = () => {
       <View style={{marginLeft:windowWidth*27/375, marginRight:windowWidth*18/375,
             flex:1, flexDirection: 'row', alignItems: 'center'}}>
             <Text style={{fontWeight:"bold", fontSize:14, color:'rgb(135,178,106)', width:windowWidth*67/375}}>Category</Text>
-            <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{ width:138, height:40, marginLeft:8}}/>
+            <Image source={{uri: 'https://github.com/NoobCoderGrowing/git_test/blob/master/cat1.png?raw=true'}} style={{ width:40, height:40, marginLeft:48}}/>
       </View>
 
       <Text style={{textAlign:'center', marginLeft:windowWidth*27/375, marginRight:windowWidth*27/375, marginTop:windowHeight*28/947, color:'rgba(141,192,56,0.2)'}}>——————————————————————————————————</Text>
@@ -100,17 +104,19 @@ const teacherTaskDetail = () => {
     
       <ScrollView horizontal={true}>
           <View style={{flexDirection: 'row'}}>
-            <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            <Image source={{uri: 'https://github.com/NoobCoderGrowing/DECO7381/blob/master/4811603866811_.pic_hd.jpg?raw=true'}} style={{height:190,width:147, marginBottom:60,marginLeft:30}}/>
           
             
-            <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
-            <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
-            <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            <Image source={{uri: 'https://github.com/NoobCoderGrowing/DECO7381/blob/master/4801603866781_.pic_hd.jpg?raw=true'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            {/* <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/>
+            <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{height:190,width:147, marginBottom:60,marginLeft:12.3}}/> */}
           </View>
       </ScrollView>
 
     </ScrollView>
-    <Image source={require('./assets/images/Group394.png')} style={{height:windowHeight*67.3/947, width:windowWidth*68/375,marginLeft:windowWidth*307/375,position:'absolute',bottom:10}}/>
+    <TouchableOpacity onPress={navigate}>
+      <Image source={require('./assets/images/edit.png')} style={{marginLeft:windowWidth*307/375,position:'absolute',bottom:550,left:40}}/>
+    </TouchableOpacity>
     </View>
   );
 }
