@@ -26,6 +26,7 @@ class echoTree extends Component{
         this.state = {
           topvalue:new Animated.Value(100),
           leftvalue:new Animated.Value(150),
+          credit:20,
           display:"none",
           progressBar:0,
           source:require('./assets/images/tree/tree1.png'),
@@ -40,6 +41,7 @@ class echoTree extends Component{
       }
 
    moveBall(){
+       console.log("lllll");
         
         this.setState({
             display:'flex',
@@ -138,6 +140,10 @@ class echoTree extends Component{
             <View style={{zIndex:2,position:'absolute',top:335,left:20,width:30,height:20}}>
                 <Image style={{zIndex:3,position:'absolute',alignSelf:'center',bottom:0,height:this.state.progressBar}} source={require('./assets/images/needle/tube2.png')}></Image>
             </View>
+            {/* <View style={{width:20,height:20,position:"absolute",backgroundColor:'red',left:150,top:100}}>
+                <Text>{this.state.credit}</Text>
+            </View>
+             */}
             
             <View style={{ position:'relative',width:280,height:400,alignSelf:'center',top:'25%'}}>
                 <Image style={{zIndex:1,position:'absolute',alignSelf:'center',bottom:0}} source={this.state.source}></Image>

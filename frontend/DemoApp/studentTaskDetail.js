@@ -34,16 +34,16 @@ const styles = StyleSheet.create({
   }
 });
 
-const teacherTaskDetail = ({ navigation })=> {
+const studentTaskDetail = ({ navigation })=> {
 
   const navigate=()=>{
-    navigation.navigate("EditTask");
+    navigation.navigate("TaskDetail2");
   };
   return (
     <View style={{position:"relative"}}>
     <ScrollView>
       <View style={{position:'relative'}}>
-        <Text style={{fontWeight:"bold",fontSize:24,color:'rgb(8,54,3)',textAlign:'center', marginTop:50, marginBottom:windowHeight*18/947}}>Less Plastic Bottle!</Text>
+        <Text style={{fontWeight:"bold",fontSize:24,color:'rgb(8,54,3)',textAlign:'center', marginTop:50, marginBottom:windowHeight*18/947}}> Plastic Bottle!</Text>
         {/* <TouchableOpacity style={styles.signIn} onPress={navigate}>
               <Text style={{bottom:5,textAlign:"center",color:'white',fontWeight:"bold"}}>Edit</Text>
         </TouchableOpacity> */}
@@ -114,11 +114,11 @@ const teacherTaskDetail = ({ navigation })=> {
       </ScrollView>
 
     </ScrollView>
-    <TouchableOpacity onPress={navigate}>
-      <Image source={require('./assets/images/edit.png')} style={{marginLeft:windowWidth*307/375,position:'absolute',bottom:550,left:40}}/>
+    <TouchableOpacity>
+      <Image source={require('./assets/images/upload.png')} style={{marginLeft:windowWidth*307/375,position:'absolute',bottom:0,left:-180}}/>
     </TouchableOpacity>
     </View>
   );
 }
 
-export default teacherTaskDetail;
+export default studentTaskDetail;

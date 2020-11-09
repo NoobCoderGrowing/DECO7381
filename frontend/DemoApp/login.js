@@ -124,6 +124,7 @@ const Login = ({ navigation }) => {
           body: userJason
         }
       ).then((response)=>response.json().then(data=>{
+        console.log(data);
         navigation.navigate("HelloUser",{data});
       }))
       .catch((error) => {

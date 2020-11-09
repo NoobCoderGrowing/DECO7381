@@ -19,6 +19,7 @@ import Register from './register';
 import Start from './start';
 import teacher from './handleTeacher';
 import student from './handleStudent';
+import studentTaskDtail from './studentTaskDetail'
 
 
 
@@ -66,12 +67,13 @@ function teacherApp(){
       <Tab.Navigator>
         <Tab.Screen name="Base" component={Start} />
         <Tab.Screen name="Register" component={Register} />
-        <Tab.Screen name="MyProfile" component={MyProfile} />
         <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="HelloUser" component={AfterLogin} />
+        <Tab.Screen name="MyProfile" component={MyProfile} />
         <Tab.Screen name="TaskList" component={TaskList} />
         <Tab.Screen name="TaskDetail" component={teacherTaskDetail} />
-        <Tab.Screen name="TaskDetail2" component={taskDeatail2} />
+        <Tab.Screen name="EditTask" component={taskDeatail2} />
+        <Tab.Screen name="Leaderboard" component={Leaderboard} />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -84,17 +86,26 @@ function studentApp(){
       <Tab.Navigator>
         <Tab.Screen name="Base" component={Start} />
         <Tab.Screen name="Register" component={Register} />
-        <Tab.Screen name="MyProfile" component={MyProfile} />
+        {/* <Tab.Screen name="MyProfile" component={MyProfile} /> */}
         <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="HelloUser" component={AfterLogin} />
         <Tab.Screen name="TaskList" component={TaskList} />
-        <Tab.Screen name="TaskDetail" component={teacherTaskDetail} />
-        <Tab.Screen name="Leaderboard" component={Leaderboard} />
+        {/* <Tab.Screen name="Leaderboard" component={Leaderboard} /> */}
+        <Tab.Screen name="TaskDetail" component={studentTaskDtail} />
         <Tab.Screen name="urTree" component={echoTree} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
 
+// the default version of this app is teacher version
+// to use teacher version uncomment the next line and comment studentApp
+// teacher username  is "wenjun", password is  "123"
+// export default teacherApp;
 
-export default finalApp;
+// to use student version uncomment the next line and comment teacherApp
+// student username is "chengjiao", password is "123"
+export default studentApp;
+
+
+
